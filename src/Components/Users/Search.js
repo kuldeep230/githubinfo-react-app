@@ -37,6 +37,8 @@ import React, { useState } from "react";
 //     );
 //   }
 // }
+
+/*Converted to functional Component  */
 const Search = ({ searchUsers }) => {
   const [formData, setFormData] = useState({
     text: "",
