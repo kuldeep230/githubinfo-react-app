@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import axios from "axios";
 
+import Alert from "./Alert";
 import UserItem from "./UserItem";
 import HeroSection from "../Layout/HeroSection";
 import Search from "./Search";
@@ -52,35 +52,11 @@ import Spinner from "../Layout/Spinner";
 class Users extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      users: [],
-      loading: false,
-    };
     this.mySearchComponent = React.createRef();
   }
-  async componentDidMount() {
-    try {
-      this.setState({ loading: true });
-      let res = await axios.get("https://api.github.com/users");
-      this.setState({ users: res.data, loading: false });
-    } catch (error) {
-      this.setState({ loading: false });
-      console.error(error);
-    }
+  componentDidMount() {
+    this.props.getAllUsers();
   }
-
-  searchUsers = async (text) => {
-    try {
-      this.setState({ loading: true });
-      let { data } = await axios.get(
-        `https://api.github.com/search/users?q=${text}`
-      );
-      this.setState({ users: data.items, loading: false });
-    } catch (error) {
-      this.setState({ loading: false });
-      console.error(error);
-    }
-  };
 
   handleOnClick = () => {
     if (this.mySearchComponent.current) {
@@ -117,13 +93,14 @@ class Users extends Component {
             </svg>
           </button>
         </div>
+        {/* <Alert /> */}
         <div ref={this.mySearchComponent}>
-          <Search searchUsers={this.searchUsers} />
-          {this.state.loading ? (
+          <Search searchUsers={this.props.searchUsers} />
+          {this.props.loading ? (
             <Spinner />
           ) : (
-            <div className="grid grid-cols-4 sm:grid-cols-1 gap-10 mt-10 rounded ">
-              {this.state.users.map((element) => (
+            <div className="grid lg:grid-cols-4 sm:grid-cols-1 gap-10 mt-10 rounded ">
+              {this.props.users.map((element) => (
                 <UserItem
                   login={element.login}
                   avatar_url={element.avatar_url}

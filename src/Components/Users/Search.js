@@ -19,7 +19,7 @@ class Search extends Component {
           onSubmit={this.handleSubmit}
         >
           <input
-            className="border-none bg-gray-100 bg-opacity-25 rounded w-1/4 sm:w-3/4 text-gray-100 mr-5 placeholder-gray-100 pl-5 shadow-lg"
+            className="border-none bg-gray-100 bg-opacity-25 rounded md:w-1/3 sm:w-3/4 text-gray-100 mr-5 placeholder-gray-100 pl-5 shadow-lg"
             type="text"
             name="name"
             value={this.state.text}

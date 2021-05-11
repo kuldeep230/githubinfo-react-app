@@ -10,7 +10,7 @@ class UserItem extends Component {
           src={avatar_url}
           alt=""
           style={{ width: "190px" }}
-          className="rounded-xl sm:rounded-full"
+          className="rounded-xl rounded-xl"
         />
         <h3 className="font-bold text-xl text-gray-100 pt-2">{login}</h3>
         <div className="p-6 transition duration-500 ease-in-out  hover:bg-opacity-50 transform hover:-translate-y-1 hover:scale-90">

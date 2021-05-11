@@ -26,8 +26,8 @@ const HeroSection = () => {
           </p>
         </div>
       </section>
-      <section className="sm:flex justify-center shadow-lg rounded max-w-full mh-auto border-none mt-20 sm:mt-10  ">
-        <div className="sm:hidden">
+      <section className="sm:flex justify-center shadow-lg rounded max-w-full mh-auto border-none mt-20   ">
+        <div className="hidden md:block">
           <img
             src="https://cdn.dribbble.com/users/577645/screenshots/15309171/media/3efa6a481a2f75f81c9724007c46ffa1.jpg?compress=1&resize=400x400"
             alt=""
