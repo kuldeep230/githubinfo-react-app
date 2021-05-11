@@ -38,14 +38,19 @@ import React, { useState } from "react";
 //   }
 // }
 const Search = ({ searchUsers }) => {
-  const [text, setText] = useState("");
+  const [formData, setFormData] = useState({
+    text: "",
+  });
 
-  const handleText = (e) => {
-    setText(e.target.value);
+  const handleFormData = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    searchUsers(text);
+    searchUsers(formData.text);
   };
   return (
     <div>
@@ -53,9 +58,9 @@ const Search = ({ searchUsers }) => {
         <input
           className="border-none bg-gray-100 bg-opacity-25 rounded md:w-1/3 sm:w-3/4 text-gray-100 mr-5 placeholder-gray-100 pl-5 shadow-lg"
           type="text"
-          name="name"
-          value={text}
-          onChange={handleText}
+          name="text"
+          value={formData.text}
+          onChange={handleFormData}
           placeholder="Search Users..."
         />
         <input
