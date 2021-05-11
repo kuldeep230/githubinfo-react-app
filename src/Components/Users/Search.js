@@ -7,16 +7,19 @@ class Search extends Component {
   handleChange = (e) => {
     this.setState({ text: e.target.value });
   };
-  handleSubmit = async (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.searchUsers(this.state.text);
   };
   render() {
     return (
       <div>
-        <form className="" onSubmit={this.handleSubmit}>
+        <form
+          className="m-1.2 flex justify-center py-5 "
+          onSubmit={this.handleSubmit}
+        >
           <input
-            className="mt-1.2rem mr-0 "
+            className="border-none bg-gray-100 bg-opacity-25 rounded w-1/4 sm:w-3/4 text-gray-100 mr-5 placeholder-gray-100 pl-5 shadow-lg"
             type="text"
             name="name"
             value={this.state.text}
@@ -24,9 +27,9 @@ class Search extends Component {
             onChange={this.handleChange}
           />
           <input
+            className="w-20 h-10 border-none rounded bg-purple-500 bg-opacity-50 text-gray-100 cursor-pointer transition duration-500 ease-in-out bg-blue-600 hover:bg-red-500 hover:bg-opacity-50 transform hover:-translate-y hover:scale-110 shadow-lg"
             type="submit"
             value="Search"
-            className="btn btn-dark btn-block"
           />
         </form>
       </div>

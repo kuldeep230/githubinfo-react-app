@@ -16,7 +16,7 @@ Using Funtional component...
 */
 const Contact = () => {
   return (
-    <div>
+    <div className="h-screen">
       <h1>Contact Us</h1>
     </div>
   );
