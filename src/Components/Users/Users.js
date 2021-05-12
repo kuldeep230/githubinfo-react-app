@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import GithubContext from "../../Context/GithubContext/GithubContext";
 
 // import Alert from "./Alert";
 import UserItem from "./UserItem";
@@ -75,9 +76,10 @@ import Spinner from "../Layout/Spinner";
 /*Converted to function component...   */
 const Users = (props) => {
   const mySearchComponent = React.createRef();
+  const context = useContext(GithubContext);
 
   useEffect(() => {
-    props.getAllUsers();
+    context.getAllUsers();
     //eslint-disable-next-line
   }, []);
 
@@ -118,11 +120,11 @@ const Users = (props) => {
       {/* <Alert /> */}
       <div ref={mySearchComponent}>
         <Search searchUsers={props.searchUsers} />
-        {props.loading ? (
+        {context.loading ? (
           <Spinner />
         ) : (
           <div className="grid lg:grid-cols-4 sm:grid-cols-1 gap-10 mt-10 rounded ">
-            {props.users.map((element) => (
+            {context.users.map((element) => (
               <UserItem
                 login={element.login}
                 avatar_url={element.avatar_url}

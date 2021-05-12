@@ -124,7 +124,7 @@ const Profile = (props) => {
   return (
     <>
       {props.loading ? (
-        <div className="h-screen">
+        <div>
           <Spinner />
         </div>
       ) : (
@@ -218,7 +218,7 @@ const Profile = (props) => {
                 <i>Repositories</i>
               </h1>
             </div>
-            <Repos repos={props.repos} />
+            {props.loading ? <Spinner /> : <Repos repos={props.repos} />}
           </div>
         </div>
       )}

@@ -6,6 +6,7 @@ import "./App.css";
 //All Components..
 import About from "./Components/Layout/About";
 import Contact from "./Components/Layout/Contact";
+import GithubState from "./Context/GithubContext/GithubState";
 import Navbar from "./Components/Layout/Navbar";
 import Profile from "./Components/Users/Profile";
 import Users from "./Components/Users/Users";
@@ -59,37 +60,34 @@ const App = () => {
 
   return (
     <div className="bg-gradient-to-r from-purple-500 to-red-500 px-4 sm:px-6 lg:px-16    hover:from-pink-700 hover:to-yellow-400 ">
-      <div>
-        <Navbar title="GitHubInfo" icon="fab fa-github" />
-      </div>
-      <div>
-        <Switch>
-          <Route exact path="/about" component={About} />
-          <Route exact path="/contact" component={Contact} />{" "}
-          <Route
-            exact
-            path="/user/:userId"
-            render={(props) => (
-              <Profile
-                getUserAndRepoInfo={getUserAndRepoInfo}
-                repos={repos}
-                user={user}
-                loading={loading}
-                id={id}
-                {...props}
-              />
-            )}
-          />
-          <Route exact path="/">
-            <Users
-              getAllUsers={getAllUsers}
-              users={users}
-              loading={loading}
-              searchUsers={searchUsers}
+      <GithubState>
+        <div>
+          <Navbar title="GitHubInfo" icon="fab fa-github" />
+        </div>
+        <div>
+          <Switch>
+            <Route exact path="/about" component={About} />
+            <Route exact path="/contact" component={Contact} />{" "}
+            <Route
+              exact
+              path="/user/:userId"
+              render={(props) => (
+                <Profile
+                  getUserAndRepoInfo={getUserAndRepoInfo}
+                  repos={repos}
+                  user={user}
+                  loading={loading}
+                  id={id}
+                  {...props}
+                />
+              )}
             />
-          </Route>
-        </Switch>
-      </div>
+            <Route exact path="/">
+              <Users searchUsers={searchUsers} />
+            </Route>
+          </Switch>
+        </div>
+      </GithubState>
     </div>
   );
 };
