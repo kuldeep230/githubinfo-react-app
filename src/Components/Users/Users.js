@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import Alert from "./Alert";
+// import Alert from "./Alert";
 import UserItem from "./UserItem";
 import HeroSection from "../Layout/HeroSection";
 import Search from "./Search";
