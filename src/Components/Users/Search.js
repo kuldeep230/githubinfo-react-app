@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
+import GithubContext from "../../Context/GithubContext/GithubContext";
 // class Search extends Component {
 //   state = {
 //     text: "",
@@ -39,11 +40,11 @@ import React, { useState } from "react";
 // }
 
 /*Converted to functional Component  */
-const Search = ({ searchUsers }) => {
+const Search = () => {
   const [formData, setFormData] = useState({
     text: "",
   });
-
+  const ghContext = useContext(GithubContext);
   const handleFormData = (e) => {
     setFormData({
       ...formData,
@@ -52,7 +53,7 @@ const Search = ({ searchUsers }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    searchUsers(formData.text);
+    ghContext.searchUsers(formData.text);
   };
   return (
     <div>

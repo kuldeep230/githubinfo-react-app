@@ -1,4 +1,4 @@
-import { ALL_USERS, SET_LOADING, RESET_LOADING } from "../types";
+import { ALL_USERS, SET_LOADING, RESET_LOADING, SET_USER_REPO } from "../types";
 
 const reducer = (state, action) => {
   const { type, payload } = action;
@@ -17,6 +17,14 @@ const reducer = (state, action) => {
       return {
         ...state,
         users: payload,
+        loading: false,
+      };
+    case SET_USER_REPO:
+      const { user, repos } = payload;
+      return {
+        ...state,
+        user,
+        repos,
         loading: false,
       };
     default:

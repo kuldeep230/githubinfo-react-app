@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import GithubContext from "../../Context/GithubContext/GithubContext";
 
+//Import Components
 // import Alert from "./Alert";
 import UserItem from "./UserItem";
 import HeroSection from "../Layout/HeroSection";
@@ -74,7 +75,7 @@ import Spinner from "../Layout/Spinner";
 // }
 
 /*Converted to function component...   */
-const Users = (props) => {
+const Users = () => {
   const mySearchComponent = React.createRef();
   const context = useContext(GithubContext);
 
@@ -119,7 +120,7 @@ const Users = (props) => {
       </div>
       {/* <Alert /> */}
       <div ref={mySearchComponent}>
-        <Search searchUsers={props.searchUsers} />
+        <Search />
         {context.loading ? (
           <Spinner />
         ) : (
